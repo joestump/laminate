@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "lodash": "^2.4.1",
+    "ratchet": "git://github.com/twbs/ratchet",
     "react": "^0.12.2"
   }
 }
