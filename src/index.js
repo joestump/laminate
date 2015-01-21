@@ -7,5 +7,7 @@ Laminate.Content = require('./components/content');
 Laminate.Icon = require('./components/icon');
 Laminate.InputGroup = require('./components/input-group');
 Laminate.Modal = require('./components/modal');
+Laminate.SegmentedControl = require('./components/segmented-control');
 Laminate.TitleBar = require('./components/title-bar');
 Laminate.Toggle = require('./components/toggle');
+
