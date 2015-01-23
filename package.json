@@ -8,8 +8,13 @@
   },
   "jest": {
     "scriptPreprocessor": "./__tests__/preprocessor.js",
-    "unmockedModulePathPatterns": ["node_modules/react"],
-    "testPathIgnorePatterns": ["/node_modules/", "__tests__/preprocessor.js"]
+    "unmockedModulePathPatterns": [
+      "node_modules/react",
+      "node_modules/react/addons"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/", "__tests__/preprocessor.js"
+    ]
   },
   "repository": {
     "type": "git",
