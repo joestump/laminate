@@ -3,7 +3,7 @@ jest.dontMock('../../src/components/toggle');
 var assert = require('assert');
 
 describe('Toggle', function() {
-  var Toggle, onToggle, React, TestUtils;
+  var Toggle, toggle, mock, React, TestUtils;
 
   beforeEach(function() {
     // Include React and TestUtils here because React can get double-included.
@@ -11,13 +11,22 @@ describe('Toggle', function() {
     React = require('react/addons');
     TestUtils = React.addons.TestUtils;
     Toggle = require('../../src/components/toggle');
-    onToggle = function(toggled) {
 
+    // We'll use this mock to check for toggle events being called.
+    mock = { 
+      onToggle: function(toggled) {
+
+      }
     };
+    spyOn(mock, 'onToggle');
+
+    // JSX doesn't really return an actual instance of Toggle. Only once the
+    // component is rendered into the DOM does React fully hydrate an instance
+    // of Toggle.
+    toggle = <Toggle onToggle={mock.onToggle} />;
   });
 
   it('is a Toggle element', function() {
-    var toggle = <Toggle onToggle={onToggle} />;
     expect(TestUtils.isElementOfType(toggle, Toggle)).toEqual(true);
   });
 
@@ -26,13 +35,24 @@ describe('Toggle', function() {
   });
 
   it('defaults toggled to false', function() {
-    // JSX doesn't really return an actual instance of Toggle. Only once the
-    // component is rendered into the DOM does React fully hydrate an instance
-    // of Toggle.
-    var toggle = TestUtils.renderIntoDocument(<Toggle onToggle={onToggle} />);
+    var elem = TestUtils.renderIntoDocument(toggle);
 
     // At this point the React component lifecycle has ran, including the
     // getDefaultProps() method. There's no need to test it directly.
-    expect(toggle.props.toggled).toEqual(false);
+    expect(elem.props.toggled).toEqual(false);
+  });
+
+  describe('onToggle', function() {
+    it('calls onToggle with true when clicked', function() {
+      var elem = TestUtils.renderIntoDocument(toggle);
+      var node = elem.getDOMNode();
+//      var click = jsdom.UIEvent('toggle', true, true, null, {
+//        isActive: true
+//      });
+
+//      node.dispatchEvent(click);
+
+      expect(mock.onToggle).toHaveBeenCalledWith(true);
+    });
   });
 });
