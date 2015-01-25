@@ -1,6 +1,4 @@
-jest.dontMock('../../src/components/toggle');
-
-var assert = require('assert');
+jest.dontMock('../toggle');
 
 describe('Toggle', function() {
   var Toggle, toggle, mock, React, TestUtils;
@@ -10,7 +8,7 @@ describe('Toggle', function() {
     // This is due to various auto-mocking magic with Jest and require.
     React = require('react/addons');
     TestUtils = React.addons.TestUtils;
-    Toggle = require('../../src/components/toggle');
+    Toggle = require('../toggle');
 
     // We'll use this mock to check for toggle events being called.
     mock = { 
@@ -40,19 +38,5 @@ describe('Toggle', function() {
     // At this point the React component lifecycle has ran, including the
     // getDefaultProps() method. There's no need to test it directly.
     expect(elem.props.toggled).toEqual(false);
-  });
-
-  describe('onToggle', function() {
-    it('calls onToggle with true when clicked', function() {
-      var elem = TestUtils.renderIntoDocument(toggle);
-      var node = elem.getDOMNode();
-//      var click = jsdom.UIEvent('toggle', true, true, null, {
-//        isActive: true
-//      });
-
-//      node.dispatchEvent(click);
-
-      expect(mock.onToggle).toHaveBeenCalledWith(true);
-    });
   });
 });
