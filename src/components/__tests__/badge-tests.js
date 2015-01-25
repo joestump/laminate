@@ -22,4 +22,15 @@ describe('Badge', function() {
     var elem = TestUtils.renderIntoDocument(badge);
     expect(elem.props.count).toEqual(0);
   });
+
+  it('defaults type to default', function() {
+    var elem = TestUtils.renderIntoDocument(badge);
+    expect(elem.props.type).toEqual('default');
+  });
+
+  it('defaults inverted to false', function() {
+    var elem = TestUtils.renderIntoDocument(badge);
+    expect(elem.props.inverted).toEqual(false);
+  });
+
 });
