@@ -22,11 +22,12 @@ var Badge = React.createClass({
 
   render: function() {
     var typeClass = 'badge-' + this.props.type;
-    var badgeClassSet = React.addons.classSet({
+    var badgeClasses = {
       'badge': true,
       'badge-inverted': this.props.inverted
-    });
-    badgeClassSet[typeClass] = (this.props.type != 'default');
+    }
+    badgeClasses[typeClass] = (this.props.type != 'default');
+    var badgeClassSet = React.addons.classSet(badgeClasses);
 
     return (
       <span className={badgeClassSet}>{this.props.count}</span>

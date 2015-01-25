@@ -59,10 +59,9 @@ describe('Badge', function() {
     var badgeTypes = ['primary', 'positive', 'negative'];
     _.each(badgeTypes, function(badgeType) {
       it('sets badge-' + badgeType + ' class when type="' + badgeType + '"', function() {
-        var b = <Badge type={badgeType} />;
+        var b = <Badge type={badgeType} inverted={true} />;
         var elem = TestUtils.renderIntoDocument(b);
         var node = elem.getDOMNode();
-        console.log($(node).attr('class'));
         var badgeClass = 'badge-' + badgeType;
         expect($(node).hasClass(badgeClass)).toEqual(true);
       });
