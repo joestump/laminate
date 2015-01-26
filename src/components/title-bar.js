@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 
 var TitleBar = React.createClass({
@@ -8,8 +10,8 @@ var TitleBar = React.createClass({
   getDefaultProps: function() {
     return {
       title: ''
-    }
-  }, 
+    };
+  },
 
   render: function() {
     return (
@@ -20,3 +22,5 @@ var TitleBar = React.createClass({
     );
   }
 });
+
+module.exports = TitleBar;

@@ -1,9 +1,10 @@
+'use strict';
+
 jest.dontMock('../card');
 jest.dontMock('jquery');
 jest.dontMock('lodash');
 
 var $ = require('jquery');
-var _ = require('lodash');
 
 describe('Card', function() {
   var Card, card, React, TestUtils;
@@ -33,6 +34,6 @@ describe('Card', function() {
     var c = <Card>Hello world!</Card>;
     var elem = TestUtils.renderIntoDocument(c);
     var node = elem.getDOMNode();
-    expect($(node).text()).toEqual('Hello world!'); 
+    expect($(node).text()).toEqual('Hello world!');
   });
 });

@@ -1,3 +1,5 @@
+'use strict';
+
 jest.dontMock('../badge');
 jest.dontMock('jquery');
 jest.dontMock('lodash');
@@ -51,7 +53,7 @@ describe('Badge', function() {
       var badgeClasses = [
         'badge-default', 'badge-primary', 'badge-positive', 'badge-negative'
       ];
-      _.each(badgeClasses, function(badgeClass) {
+      _.each(badgeClasses, function() {
         expect($(node).hasClass('badge-default')).toEqual(false);
       });
     });

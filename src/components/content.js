@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 
 var Content = React.createClass({
@@ -8,19 +10,21 @@ var Content = React.createClass({
   getDefaultProps: function() {
     return {
       padded: false
-    }
-  }
+    };
+  },
 
   render: function() {
-    padding = React.addons.classSet({
+    var contentClasses = React.addons.classSet({
       'content': !this.props.padded,
       'content-padded': this.props.padded
     });
 
     return (
-      <div className={classes}>
+      <div className={contentClasses}>
         {this.props.children}
       </div>
     );
   }
 });
+
+module.exports = Content;
