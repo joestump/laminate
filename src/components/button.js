@@ -18,7 +18,7 @@ var Button = React.createClass({
 
 	getDefaultProps: function() {
 		return {
-			label: null,
+			label: '',
 			type: 'default',
 			outlined: false,
 			block: false,
@@ -29,13 +29,14 @@ var Button = React.createClass({
 
 	render: function() {
 		var typeClass = 'btn-' + this.props.type;
-		var buttonClassSet = React.addons.classSet({
+		var buttonClasses = {
 			'btn': true,
-			'btn-outlined': this.outlined,
-			'btn-block': this.block
-		});
+			'btn-outlined': this.props.outlined,
+			'btn-block': this.props.block
+		};
 
-		buttonClassSet[typeClass] = (this.props.type != 'default');
+		buttonClasses[typeClass] = (this.props.type != 'default');
+		var buttonClassSet = React.addons.classSet(buttonClasses);
 
 		return (
 			<button className={buttonClassSet}>{this.props.icon}{this.props.label}{this.props.badge}</button>
