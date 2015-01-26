@@ -29,5 +29,10 @@ describe('Card', function() {
     expect($(node).hasClass('card')).toEqual(true);
   });
 
-
+  it('sets content correctly', function() {
+    var c = <Card>Hello world!</Card>;
+    var elem = TestUtils.renderIntoDocument(c);
+    var node = elem.getDOMNode();
+    expect($(node).text()).toEqual('Hello world!'); 
+  });
 });

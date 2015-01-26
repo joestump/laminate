@@ -10,4 +10,4 @@ var Card = React.createClass({
   }
 });
 
-module.exports = Card
+module.exports = Card;
