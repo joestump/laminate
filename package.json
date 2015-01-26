@@ -4,7 +4,8 @@
   "description": "A cross-platform ReactJS UI framework for Cordova.",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "./node_modules/eslint/bin/eslint.js src/"
   },
   "jest": {
     "scriptPreprocessor": "./preprocessor.js",
