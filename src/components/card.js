@@ -9,3 +9,5 @@ var Card = React.createClass({
     );
   }
 });
+
+module.exports = Card
