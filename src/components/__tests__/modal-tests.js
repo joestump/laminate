@@ -14,7 +14,7 @@ describe('Modal', function() {
     Modal = require('../modal');
     modal = <Modal id="test">Hello</Modal>;
   });
-  
+
   it('is a Modal element', function() {
     expect(TestUtils.isElementOfType(modal, Modal)).toEqual(true);
   });
