@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 
 var Icon = React.createClass({
@@ -50,7 +52,7 @@ var Icon = React.createClass({
   getDefaultProps: function() {
     return {
       type: 'default'
-    }
+    };
   },
 
   render: function() {
@@ -58,8 +60,8 @@ var Icon = React.createClass({
     var iconClasses = {
       'icon': true
     };
-    
-    iconClasses[typeClass] = (this.props.type != 'default');
+
+    iconClasses[typeClass] = (this.props.type !== 'default');
     var iconClassSet = React.addons.classSet(iconClasses);
 
     return (
