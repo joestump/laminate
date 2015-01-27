@@ -12,4 +12,7 @@ var TabBar = React.createClass({
   }
 });
 
+TabBar.Item = require('./item');
+TabBar.Label = require('./label');
+
 module.exports = TabBar;

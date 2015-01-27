@@ -1,6 +1,6 @@
 var React = require('react/addons');
 
-var Label = React.createClass({
+var TabBarLabel = React.createClass({
   propTypes: {
     text: React.PropTypes.string.isRequired,
     href: React.PropTypes.string.isRequired, 
@@ -33,4 +33,4 @@ var Label = React.createClass({
   }
 });
 
-module.exports = Label;
+module.exports = TabBarLabel;
