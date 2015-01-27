@@ -25,7 +25,7 @@ describe('Content', function() {
 
   it('padded defaults to false', function() {
     var elem = TestUtils.renderIntoDocument(content);
-    expect(elem.props.padded).toEqual(false); 
+    expect(elem.props.padded).toEqual(false);
   });
 
   it('has the content class by default', function() {
