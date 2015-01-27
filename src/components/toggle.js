@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 
 var Toggle = React.createClass({
@@ -9,7 +11,7 @@ var Toggle = React.createClass({
   getDefaultProps: function() {
     return {
       toggled: false
-    }
+    };
   },
 
   componentDidMount: function() {
@@ -17,7 +19,7 @@ var Toggle = React.createClass({
   },
 
   componentWillUnmount: function() {
-    this.getDOMNode().removeEventListener('toggle', this.onToggle); 
+    this.getDOMNode().removeEventListener('toggle', this.onToggle);
   },
 
   onToggle: function(e) {
