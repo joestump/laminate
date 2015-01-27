@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 var _ = require('lodash');
 
@@ -15,10 +17,10 @@ var SegmentedControlItem = React.createClass({
   },
 
   render: function() {
-    itemClasses = {
+    var itemClasses = React.addons.classSet({
       'control-item': true,
       'active': this.props.acive
-    }
+    });
 
     if (_.isString(this.props.href) && this.props.href.length) {
       return (
