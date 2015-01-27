@@ -14,7 +14,7 @@ describe('InputGroupRow', function() {
     InputGroupRow = require('../row');
     inputGroupRow = (
       <InputGroupRow label="test">
-        <input type="text"/>
+        <input type="text" id="test"/>
       </InputGroupRow>
     );
   });
@@ -31,5 +31,19 @@ describe('InputGroupRow', function() {
     var elem = TestUtils.renderIntoDocument(inputGroupRow);
     var node = elem.getDOMNode();
     expect($(node).hasClass('input-row')).toEqual(true);
+  });
+
+  it('sets label correctly', function() {
+    var elem = TestUtils.renderIntoDocument(inputGroupRow);
+    expect(elem.props.label).toEqual('test');
+    var node = elem.getDOMNode();
+    expect($('label', node).text()).toEqual('test');
+  });
+
+  it('renders the input correctly', function() {
+    var elem = TestUtils.renderIntoDocument(inputGroupRow);
+    expect(elem.props.label).toEqual('test');
+    var node = elem.getDOMNode();
+    expect($('input', node).attr('id')).toEqual('test');
   });
 });
