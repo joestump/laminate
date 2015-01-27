@@ -1,26 +1,32 @@
+'use strict';
+
 var React = require('react/addons');
 
 var Content = React.createClass({
   propTypes: {
+    id: React.PropTypes.string,
     padded: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
     return {
-      padded: false
-    }
-  }
+      padded: false,
+      id: ''
+    };
+  },
 
   render: function() {
-    padding = React.addons.classSet({
+    var contentClasses = React.addons.classSet({
       'content': !this.props.padded,
       'content-padded': this.props.padded
     });
 
     return (
-      <div className={classes}>
+      <div className={contentClasses} id={this.props.id}>
         {this.props.children}
       </div>
     );
   }
 });
+
+module.exports = Content;

@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 
 var Badge = React.createClass({
@@ -9,7 +11,7 @@ var Badge = React.createClass({
       'positive',
       'negative'
     ]),
-    inverted: React.PropTypes.bool.isRequired 
+    inverted: React.PropTypes.bool.isRequired
   },
 
   getDefaultProps: function() {
@@ -17,16 +19,17 @@ var Badge = React.createClass({
       count: 0,
       type: 'default',
       inverted: false
-    }
+    };
   },
 
   render: function() {
-    var typeClass = 'badge-' + this.props.type
-    var badgeClassSet = React.addons.classSet({
+    var typeClass = 'badge-' + this.props.type;
+    var badgeClasses = {
       'badge': true,
-      typeClass: (this.props.type != 'default'),
-      'badge-inverted': this.inverted
-    });
+      'badge-inverted': this.props.inverted
+    };
+    badgeClasses[typeClass] = (this.props.type !== 'default');
+    var badgeClassSet = React.addons.classSet(badgeClasses);
 
     return (
       <span className={badgeClassSet}>{this.props.count}</span>

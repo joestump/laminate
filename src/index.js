@@ -11,3 +11,4 @@ Laminate.SegmentedControl = require('./components/segmented-control');
 Laminate.TitleBar = require('./components/title-bar');
 Laminate.Toggle = require('./components/toggle');
 
+module.exports = Laminate;

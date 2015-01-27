@@ -1,3 +1,5 @@
+'use strict';
+
 jest.dontMock('../toggle');
 
 describe('Toggle', function() {
@@ -11,8 +13,8 @@ describe('Toggle', function() {
     Toggle = require('../toggle');
 
     // We'll use this mock to check for toggle events being called.
-    mock = { 
-      onToggle: function(toggled) {
+    mock = {
+      onToggle: function() {
 
       }
     };

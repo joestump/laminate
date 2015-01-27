@@ -1,4 +1,11 @@
+'use strict';
+
 jest.dontMock('../badge');
+jest.dontMock('jquery');
+jest.dontMock('lodash');
+
+var $ = require('jquery');
+var _ = require('lodash');
 
 describe('Badge', function() {
   var Badge, badge, React, TestUtils;
@@ -33,4 +40,33 @@ describe('Badge', function() {
     expect(elem.props.inverted).toEqual(false);
   });
 
+  it('has the badge class', function() {
+    var elem = TestUtils.renderIntoDocument(badge);
+    var node = elem.getDOMNode();
+    expect($(node).hasClass('badge')).toEqual(true);
+  });
+
+  describe('type', function() {
+    it('no badge type class is set by default', function() {
+      var elem = TestUtils.renderIntoDocument(badge);
+      var node = elem.getDOMNode();
+      var badgeClasses = [
+        'badge-default', 'badge-primary', 'badge-positive', 'badge-negative'
+      ];
+      _.each(badgeClasses, function() {
+        expect($(node).hasClass('badge-default')).toEqual(false);
+      });
+    });
+
+    var badgeTypes = ['primary', 'positive', 'negative'];
+    _.each(badgeTypes, function(badgeType) {
+      it('sets badge-' + badgeType + ' class when type="' + badgeType + '"', function() {
+        var b = <Badge type={badgeType} inverted={true} />;
+        var elem = TestUtils.renderIntoDocument(b);
+        var node = elem.getDOMNode();
+        var badgeClass = 'badge-' + badgeType;
+        expect($(node).hasClass(badgeClass)).toEqual(true);
+      });
+    });
+  });
 });
