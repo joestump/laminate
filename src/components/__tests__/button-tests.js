@@ -1,3 +1,5 @@
+'use strict';
+
 jest.dontMock('../button');
 jest.dontMock('jquery');
 jest.dontMock('lodash');
@@ -54,34 +56,20 @@ describe('Button', function() {
   });
 
   describe('type', function() {
-    it('no button type class is set by default', function() {
-      var elem = TestUtils.renderIntoDocument(button);
-      var node = elem.getDOMNode();
-      var buttonClasses = [
-        'btn-default',
-        'btn-primary',
-        'btn-positive',
-        'btn-negative',
-        'btn-link'
+    it('classes are set correctly', function() {
+      var buttonTypes = [
+        'primary',
+        'positive',
+        'negative',
+        'link'
       ];
-      _.each(buttonClasses, function(buttonClass) {
-        expect($(node).hasClass('btn-default')).toEqual(false);
-      });
-    });
 
-    var buttonTypes = [
-      'primary',
-      'positive',
-      'negative',
-      'link'
-    ];
-    _.each(buttonTypes, function(buttonType) {
-      it('sets btn-' + buttonType + ' class when type="' + buttonType + '"', function() {
-        var b = <Button type={buttonType} inverted={true} />;
+      _.each(buttonTypes, function(buttonType) {
+        var b = <Button type={buttonType} />;
         var elem = TestUtils.renderIntoDocument(b);
         var node = elem.getDOMNode();
-        var buttonClass = 'btn-' + buttonType;
-        expect($(node).hasClass(buttonClass)).toEqual(true);
+        expect($(node).hasClass('btn-default')).toEqual(false);
+        expect($(node).hasClass('btn-' + buttonType)).toEqual(true);
       });
     });
   });

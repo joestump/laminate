@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react/addons');
 
 var Button = React.createClass({
@@ -24,7 +26,7 @@ var Button = React.createClass({
 			block: false,
 			icon: null,
 			badge: null
-		}
+		};
 	},
 
 	render: function() {
@@ -35,7 +37,7 @@ var Button = React.createClass({
 			'btn-block': this.props.block
 		};
 
-		buttonClasses[typeClass] = (this.props.type != 'default');
+		buttonClasses[typeClass] = (this.props.type !== 'default');
 		var buttonClassSet = React.addons.classSet(buttonClasses);
 
 		return (

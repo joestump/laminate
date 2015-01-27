@@ -12,6 +12,7 @@
     "jsx": true
   },
   "rules": {
-    "quotes": [2, 'single']
+    "quotes": [2, 'single'],
+    "no-mixed-spaces-and-tabs": 2
   }
 }
