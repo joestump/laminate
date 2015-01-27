@@ -1,9 +1,11 @@
+'use strict';
+
 var React = require('react/addons');
 
 var TabBarLabel = React.createClass({
   propTypes: {
     text: React.PropTypes.string.isRequired,
-    href: React.PropTypes.string.isRequired, 
+    href: React.PropTypes.string.isRequired,
     active: React.PropTypes.bool.isRequired
   },
 

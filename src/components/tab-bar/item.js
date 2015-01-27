@@ -16,8 +16,7 @@ var TabBarItem = React.createClass({
 
   render: function() {
     var itemClasses = {
-      active: this.props.active,
-      
+      active: this.props.active
     };
     itemClasses['tab-item'] = true;
 
@@ -30,3 +29,5 @@ var TabBarItem = React.createClass({
     );
   }
 });
+
+module.exports = TabBarItem;
