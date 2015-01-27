@@ -3,6 +3,7 @@
 jest.dontMock('../icon');
 jest.dontMock('jquery');
 jest.dontMock('lodash');
+jest.dontMock('../../mixins/clickable-component');
 
 var $ = require('jquery');
 var _ = require('lodash');
@@ -34,6 +35,22 @@ describe('Icon', function() {
     var elem = TestUtils.renderIntoDocument(icon);
     var node = elem.getDOMNode();
     expect($(node).hasClass('icon')).toEqual(true);
+  });
+
+  describe('href', function() {
+    it('is an <a/> when href is provided', function() {
+      var i = <Icon href="#foo"/>;
+      var elem = TestUtils.renderIntoDocument(i);
+      var node = elem.getDOMNode();
+      expect($(node)[0].tagName.toLowerCase()).toEqual('a');
+    });
+    
+    it('is a <span/> when href is not provided', function() {
+      var i = <Icon />;
+      var elem = TestUtils.renderIntoDocument(i);
+      var node = elem.getDOMNode();
+      expect($(node)[0].tagName.toLowerCase()).toEqual('span');
+    });
   });
 
   describe('type', function() {

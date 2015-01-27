@@ -1,8 +1,10 @@
 'use strict';
 
 var React = require('react/addons');
+var ClickableComponentMixin = require('../mixins/clickable-component');
 
 var Icon = React.createClass({
+  mixins: [ClickableComponentMixin],
   propTypes: {
     type: React.PropTypes.oneOf([
       'default',
@@ -64,9 +66,15 @@ var Icon = React.createClass({
     iconClasses[typeClass] = (this.props.type !== 'default');
     var iconClassSet = React.addons.classSet(iconClasses);
 
-    return (
-      <span className={iconClassSet}></span>
-    );
+    if (this.props.href.length) {
+      return (
+        <a className={iconClassSet} href={this.props.href} onClick={this.props.onClick}></a>
+      );
+    } else {
+      return (
+        <span className={iconClassSet} onClick={this.props.onClick}></span>
+      );
+    }
   }
 });
 
