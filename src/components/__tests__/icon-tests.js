@@ -44,7 +44,7 @@ describe('Icon', function() {
       var node = elem.getDOMNode();
       expect($(node)[0].tagName.toLowerCase()).toEqual('a');
     });
-    
+
     it('is a <span/> when href is not provided', function() {
       var i = <Icon />;
       var elem = TestUtils.renderIntoDocument(i);
